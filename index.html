@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Letramento 2º Ano B · Lápis de Cor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B3A5C; --navy-deep:#142b45; --teal:#17718A; --teal-soft:#2a91ad;
+    --gold:#D4973A; --gold-soft:#F2C46D; --green:#2f7d54; --red:#9b2d2d;
+    --cream:#FBF7EF; --paper:#ffffff; --ink:#22303f; --muted:#5d6b7a;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'DM Sans',-apple-system,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:880px;margin:0 auto;padding:0 22px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(27,58,92,.96);backdrop-filter:blur(8px);border-bottom:2px solid var(--gold)}
+  nav .wrap{display:flex;align-items:center;gap:14px;height:58px;overflow-x:auto;scrollbar-width:none}
+  nav .wrap::-webkit-scrollbar{display:none}
+  .brand{font-family:var(--serif);font-weight:700;color:#fff;font-size:16px;white-space:nowrap;display:flex;align-items:center;gap:8px}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);flex:none}
+  nav a{color:#cdd8e4;text-decoration:none;font-size:13px;font-weight:500;white-space:nowrap;padding:4px 0;transition:color .2s}
+  nav a:hover{color:var(--gold-soft)}
+
+  /* HERO */
+  .hero{position:relative;background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 55%,#0f2238 100%);color:#fff;overflow:hidden;padding:64px 0 72px}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 2px,transparent 2px 26px);
+    opacity:.7;animation:drift 18s linear infinite}
+  @keyframes drift{from{background-position:0 0}to{background-position:520px 0}}
+  .hero .wrap{position:relative}
+  .eyebrow{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:14px}
+  .hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,8vw,56px);line-height:1.05;letter-spacing:-.5px}
+  .hero h1 em{font-style:italic;color:var(--gold-soft)}
+  .hero .sub{font-size:17px;color:#dbe5ef;max-width:560px;margin-top:18px}
+  .hero .en{font-style:italic;color:#9fb3c8;font-size:14px;margin-top:6px}
+  .hero .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .tag{background:rgba(255,255,255,.1);border:1px solid rgba(242,196,109,.35);color:#fff;font-size:12.5px;font-weight:500;padding:7px 14px;border-radius:30px}
+
+  /* SECTIONS */
+  section{padding:54px 0;border-bottom:1px solid #ece3d4}
+  .kicker{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:8px}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,5vw,36px);color:var(--navy);line-height:1.12;letter-spacing:-.3px}
+  h2 + .en{font-style:italic;color:var(--muted);font-size:14px;margin-top:4px}
+  .lead{font-size:16.5px;color:#3a4757;margin-top:16px;max-width:680px}
+  p.body{font-size:15.5px;color:#46535f;margin-top:12px;max-width:680px}
+
+  /* CALLOUT */
+  .callout{display:flex;gap:16px;align-items:flex-start;background:#fff;border-left:5px solid var(--teal);border-radius:0 12px 12px 0;padding:20px 22px;margin-top:24px;box-shadow:0 6px 24px -14px rgba(20,43,69,.5)}
+  .callout .ic{font-size:26px;flex:none;line-height:1}
+  .callout h3{font-family:var(--serif);font-size:18px;color:var(--navy);margin-bottom:4px}
+  .callout p{font-size:14.5px;color:#50606f}
+
+  /* PHASES */
+  .phases{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}
+  .phase{background:#fff;border-radius:14px;padding:20px 22px;border:1px solid #efe6d6;position:relative;overflow:hidden}
+  .phase::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px}
+  .phase.p1::before{background:#c7d2dd}.phase.p2::before{background:var(--gold-soft)}
+  .phase.p3::before{background:var(--teal-soft)}.phase.p4::before{background:var(--green)}
+  .phase .step{font-family:var(--serif);font-size:13px;font-weight:700;color:var(--teal);letter-spacing:1px;text-transform:uppercase}
+  .phase h3{font-family:var(--serif);font-size:19px;color:var(--navy);margin:3px 0 6px}
+  .phase p{font-size:14.5px;color:#52606e}
+
+  /* CHART CARDS */
+  .grid2{display:grid;grid-template-columns:1fr;gap:20px;margin-top:28px}
+  .card{background:#fff;border-radius:16px;padding:26px 24px;border:1px solid #efe6d6;box-shadow:0 8px 30px -20px rgba(20,43,69,.55)}
+  .card h3{font-family:var(--serif);font-size:19px;color:var(--navy);margin-bottom:18px;text-align:center}
+  .donut-wrap{display:flex;flex-direction:column;align-items:center;gap:18px}
+  .donut{width:190px;height:190px;border-radius:50%;position:relative;flex:none}
+  .donut::after{content:"";position:absolute;inset:26px;background:#fff;border-radius:50%}
+  .donut .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
+  .donut .ctr b{font-family:var(--serif);font-size:34px;color:var(--navy);line-height:1}
+  .donut .ctr span{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+  .legend{display:flex;flex-direction:column;gap:9px;width:100%}
+  .legend .row{display:flex;align-items:center;gap:10px;font-size:14px;color:#3f4d5b}
+  .legend .sw{width:14px;height:14px;border-radius:4px;flex:none}
+  .legend .row b{margin-left:auto;font-family:var(--serif);color:var(--navy)}
+
+  /* BARS */
+  .bars{margin-top:8px;display:flex;flex-direction:column;gap:16px}
+  .bar .top{display:flex;justify-content:space-between;font-size:14.5px;color:#3f4d5b;margin-bottom:6px}
+  .bar .top b{color:var(--navy)}
+  .track{height:13px;background:#eef0f3;border-radius:8px;overflow:hidden}
+  .fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--teal),var(--teal-soft));width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+
+  /* SUPPORT GROUPS */
+  .support{display:grid;grid-template-columns:1fr;gap:14px;margin-top:26px}
+  .sup{background:#fff;border-radius:14px;padding:20px 22px;border:1px solid #efe6d6;display:flex;gap:16px;align-items:flex-start}
+  .sup .badge{width:46px;height:46px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:20px;color:#fff}
+  .sup.s1 .badge{background:var(--green)}.sup.s2 .badge{background:var(--gold)}.sup.s3 .badge{background:var(--teal)}
+  .sup h3{font-family:var(--serif);font-size:17px;color:var(--navy)}
+  .sup p{font-size:14.5px;color:#52606e;margin-top:4px}
+
+  /* TIPS */
+  .tips{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+  .tip{background:linear-gradient(160deg,#fff,#fdf7ec);border:1px solid #efe1c8;border-radius:14px;padding:18px}
+  .tip .ic{font-size:24px}
+  .tip h3{font-family:var(--serif);font-size:16px;color:var(--navy);margin:6px 0 4px}
+  .tip p{font-size:13.5px;color:#56636f}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:#cdd8e4;padding:46px 0 40px;text-align:center}
+  footer .mk{font-family:var(--serif);color:#fff;font-size:22px;font-weight:600}
+  footer .mk em{color:var(--gold-soft);font-style:italic}
+  footer p{font-size:14px;margin-top:10px;color:#a9bccd}
+  footer .heart{color:var(--gold-soft);font-style:italic;margin-top:18px;font-family:var(--serif);font-size:17px}
+  footer .small{font-size:11.5px;color:#7e93a6;margin-top:20px;letter-spacing:.3px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(min-width:680px){
+    .phases{grid-template-columns:1fr 1fr}
+    .grid2{grid-template-columns:1fr 1fr}
+    .donut-wrap{flex-direction:row;align-items:center;justify-content:center;gap:26px}
+    .legend{width:auto;min-width:200px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand"><span class="dot"></span>Lápis de Cor · 2º Ano B</span>
+    <a href="#sondagem">A sondagem</a>
+    <a href="#fases">As fases</a>
+    <a href="#turma">Nossa turma</a>
+    <a href="#apoio">Níveis de apoio</a>
+    <a href="#casa">Em casa</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Núcleo de Letramento e Comunicação</p>
+    <h1>Como nossa turma <em>pensa</em> a escrita</h1>
+    <p class="sub">Resultados da nossa Sondagem de Letramento — um retrato carinhoso de onde cada criança está no caminho da leitura e da escrita.</p>
+    <p class="en">A warm portrait of how each child is thinking about reading and writing.</p>
+    <div class="tags">
+      <span class="tag">2º Ano B</span>
+      <span class="tag">Língua Portuguesa</span>
+      <span class="tag">Tema: O vento como energia</span>
+      <span class="tag">Maio · 2026</span>
+    </div>
+  </div>
+</header>
+
+<section id="sondagem">
+  <div class="wrap reveal">
+    <p class="kicker">O que é</p>
+    <h2>Não é prova. É escuta.</h2>
+    <p class="en">It is not a test — it is listening.</p>
+    <p class="lead">A sondagem é um instrumento que usamos para entender <strong>como cada criança está pensando</strong> sobre a escrita neste momento. Não tem nota, não tem certo ou errado para levar para casa: é um retrato do processo de aprendizagem de cada um.</p>
+    <p class="body">Para isso, pedimos que as crianças escrevam palavras e frases <strong>do seu próprio jeito</strong>, sem ajuda. É justamente nesses "erros" que enxergamos as hipóteses que elas estão construindo sobre como a escrita funciona — e é a partir daí que planejamos os próximos passos.</p>
+    <div class="callout">
+      <span class="ic">🌱</span>
+      <div>
+        <h3>Por que deixamos a criança "errar"?</h3>
+        <p>Quando uma criança escreve <em>SOPRO</em> no lugar de <em>soprou</em>, ela não está errando por descuido — está testando uma hipótese sobre os sons. Respeitar esse caminho é o que permite que ela avance com segurança.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fases">
+  <div class="wrap reveal">
+    <p class="kicker">Como avaliamos</p>
+    <h2>As fases da escrita</h2>
+    <p class="en">The stages of writing development</p>
+    <p class="lead">Nossa análise se baseia nos estudos de <strong>Emília Ferreiro e Ana Teberosky</strong> sobre como as crianças constroem a escrita. Toda criança passa por estas fases — cada uma no seu tempo.</p>
+    <div class="phases">
+      <div class="phase p1">
+        <span class="step">Fase 1</span>
+        <h3>Pré-silábica</h3>
+        <p>A criança escreve com letras, mas ainda sem relação fixa entre o som e a letra. Está descobrindo para que serve a escrita.</p>
+      </div>
+      <div class="phase p2">
+        <span class="step">Fase 2</span>
+        <h3>Silábica</h3>
+        <p>Começa a usar uma letra para cada sílaba que escuta. Um grande salto: já entende que a escrita representa sons.</p>
+      </div>
+      <div class="phase p3">
+        <span class="step">Fase 3</span>
+        <h3>Silábico-alfabética</h3>
+        <p>Fase de transição: algumas sílabas já estão completas, outras ainda não. A criança está quase lá.</p>
+      </div>
+      <div class="phase p4">
+        <span class="step">Fase 4</span>
+        <h3>Alfabética</h3>
+        <p>Representa todos os sons das palavras. Os ajustes que faltam são ortográficos — como acentos e o som do "ou".</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="turma">
+  <div class="wrap reveal">
+    <p class="kicker">Onde estamos</p>
+    <h2>Nossa turma hoje</h2>
+    <p class="en">Where our class is today</p>
+    <p class="lead">A maior parte do 2º Ano B já escreve com autonomia, e um grupo segue construindo essa base com nosso acompanhamento próximo. Veja o panorama da turma — sempre lembrando que cada criança tem o seu ritmo.</p>
+
+    <div class="grid2">
+      <div class="card">
+        <h3>Onde a turma está nas fases</h3>
+        <div class="donut-wrap">
+          <div class="donut" id="donut" style="background:conic-gradient(var(--green) 0 30.8%, #7fb79a 30.8% 61.6%, var(--gold-soft) 61.6% 76.9%, #c7d2dd 76.9% 100%)">
+            <div class="ctr"><b>13</b><span>crianças</span></div>
+          </div>
+          <div class="legend">
+            <div class="row"><span class="sw" style="background:var(--green)"></span>Alfabética consolidada <b>4</b></div>
+            <div class="row"><span class="sw" style="background:#7fb79a"></span>Alfabética em ajustes <b>4</b></div>
+            <div class="row"><span class="sw" style="background:var(--gold-soft)"></span>Silábico-alfabética <b>2</b></div>
+            <div class="row"><span class="sw" style="background:#c7d2dd"></span>Construindo a base <b>3</b></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>O que já conquistamos</h3>
+        <div class="bars" id="bars">
+          <div class="bar">
+            <div class="top"><span>Reconhecer palavras pela letra inicial</span><b>92%</b></div>
+            <div class="track"><div class="fill" data-w="92"></div></div>
+          </div>
+          <div class="bar">
+            <div class="top"><span>Escrever palavras familiares</span><b>85%</b></div>
+            <div class="track"><div class="fill" data-w="85"></div></div>
+          </div>
+          <div class="bar">
+            <div class="top"><span>Escrever frases com sentido</span><b>69%</b></div>
+            <div class="track"><div class="fill" data-w="69"></div></div>
+          </div>
+          <div class="bar">
+            <div class="top"><span>Ortografia do "ou" e encontros (fl, br)</span><b>46%</b></div>
+            <div class="track"><div class="fill" data-w="46"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apoio">
+  <div class="wrap reveal">
+    <p class="kicker">Níveis de intervenção</p>
+    <h2>Os 3 níveis de intervenção em letramento</h2>
+    <p class="en">Our three levels of literacy intervention</p>
+    <p class="lead">A partir da sondagem, organizamos o apoio em <strong>três níveis de intervenção</strong> que caminham juntos. Esse modelo garante que cada criança receba exatamente o que precisa — para que <strong>nenhuma avance sozinha nem fique para trás</strong>.</p>
+    <div class="support">
+      <div class="sup s1">
+        <div class="badge">1</div>
+        <div>
+          <h3>Nível 1 · Universal</h3>
+          <p>Para <strong>toda a turma</strong>. O ensino regular de leitura e escrita, com produção de textos no dia a dia e desafios de ortografia para quem já escreve com autonomia continuar avançando. É a base que sustenta todos.</p>
+        </div>
+      </div>
+      <div class="sup s2">
+        <div class="badge">2</div>
+        <div>
+          <h3>Nível 2 · Direcionado</h3>
+          <p>Para crianças que precisam de um <strong>empurrãozinho a mais</strong>. Acontece em pequenos grupos, algumas vezes por semana, com atividades focadas em consolidar a escrita de sílabas e frases. O avanço é acompanhado de perto e a cada etapa reavaliamos o apoio.</p>
+        </div>
+      </div>
+      <div class="sup s3">
+        <div class="badge">3</div>
+        <div>
+          <h3>Nível 3 · Intensivo</h3>
+          <p>Para crianças que ainda estão <strong>construindo a base</strong> da escrita. Recebem atenção diária e individualizada, partindo daquilo que já dominam, com registro frequente da evolução e diálogo próximo com a família. É o nível de cuidado mais personalizado.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout" style="border-left-color:var(--gold)">
+      <span class="ic">📖</span>
+      <div>
+        <h3>Como acontece na rotina</h3>
+        <p>As intervenções dos Níveis 2 e 3 acontecem <strong>semanalmente</strong>, com o <strong>apoio direto da Direção Pedagógica</strong>, em <strong>momentos curtos durante os intervalos</strong>. São encontros leves e frequentes, pensados especialmente para desenvolver a <strong>fluência leitora</strong> de cada criança no seu ritmo.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <span class="ic">💨</span>
+      <div>
+        <h3>Foco do trimestre para todos</h3>
+        <p>Em todos os níveis, este trimestre vamos brincar muito com os sons do <strong>"ou"</strong> (soprou, pousou) e os encontros de letras como <strong>fl</strong> e <strong>br</strong> (flor, brisa) — os desafios que aparecem mesmo entre quem já escreve bem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="casa">
+  <div class="wrap reveal">
+    <p class="kicker">Vocês fazem parte</p>
+    <h2>Como apoiar em casa</h2>
+    <p class="en">How to help at home</p>
+    <p class="lead">Pequenas ações no dia a dia fazem uma diferença enorme. Nada de cobrança — o que vale é o prazer de brincar com as palavras.</p>
+    <div class="tips">
+      <div class="tip"><div class="ic">📖</div><h3>Leiam juntos</h3><p>Histórias, placas, listas de mercado, embalagens. Mostrar a escrita no mundo real desperta o sentido de ler.</p></div>
+      <div class="tip"><div class="ic">✍️</div><h3>Deixem escrever do jeito dela</h3><p>Bilhetes, listas, recados. Não corrijam na hora — valorizem a tentativa. Escrever sem medo é o que faz avançar.</p></div>
+      <div class="tip"><div class="ic">🎵</div><h3>Brinquem com os sons</h3><p>Rimas, trava-línguas e músicas treinam o ouvido para os sons das palavras de forma leve e divertida.</p></div>
+      <div class="tip"><div class="ic">💬</div><h3>Conversem bastante</h3><p>Quanto mais a criança fala e ouve histórias, mais rico fica o vocabulário que ela leva para a escrita.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="mk">Formamos leitores, pensadores e <em>comunicadores globais</em>.</p>
+    <p>Equipe Pedagógica · Núcleo de Letramento e Comunicação</p>
+    <p class="heart">Estamos muito orgulhosas dessa turma! 💛</p>
+    <p class="small">Escola Projeto Lápis de Cor · 2º Ano B · Sondagem de Letramento · Maio 2026</p>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // safety: never leave content hidden (older devices / no IO support)
+  if(!('IntersectionObserver' in window)){document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
+  setTimeout(()=>document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in')),2500);
+  // animate bars when section visible
+  const barSec=document.getElementById('turma');
+  const bo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');bo.disconnect();}})},{threshold:.2});
+  bo.observe(barSec);
+</script>
+</body>
+</html>
